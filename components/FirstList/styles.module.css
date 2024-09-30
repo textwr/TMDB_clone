@@ -1,0 +1,13 @@
+.trend {
+}
+
+.trendHeader {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+}

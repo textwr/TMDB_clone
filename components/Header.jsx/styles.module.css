@@ -6,8 +6,14 @@ header {
   left: 0;
   top: 0;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 64px;
+}
+.headerWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header_leftUL {
@@ -57,4 +63,10 @@ header {
   display: flex;
   align-items: center;
   margin-right: 40px;
+}
+
+@media screen and (min-width: 1300px) {
+  .headerWrapper {
+    max-width: 1300px;
+  }
 }
