@@ -1,12 +1,12 @@
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 
-export default function FirstList() {
-  const [trending, setTrending] = useState();
+export default function SecondList() {
+  const [latestTrailers, setLatestTrailers] = useState();
 
   async function getData() {
     const response = await fetch(
-      "https://api.themoviedb.org/3/trending/movie/day?language=ko-KR&page=1",
+      "https://api.themoviedb.org/3/movie/upcoming?language=ko-KR&page=1",
       {
         headers: {
           Authorization:
@@ -16,7 +16,7 @@ export default function FirstList() {
     );
 
     const data = await response.json();
-    setTrending(data.results);
+    setLatestTrailers(data.results);
     console.log(data.results);
   }
   useEffect(() => {
@@ -26,15 +26,18 @@ export default function FirstList() {
     <>
       <section className={styles.trend}>
         <div className={styles.trendHeader}>
-          <h2>트렌드</h2>
+          <h2>최신 예고편</h2>
           <div className={styles.selector}>
-            <div className={`${styles.selected} ${styles.select}`}>오늘</div>
-            <div className={`${styles.select}`}>이번주</div>
+            <div className={`${styles.selected} ${styles.select}`}>인기</div>
+            <div className={`${styles.select}`}>스트리밍</div>
+            <div className={`${styles.select}`}>TV</div>
+            <div className={`${styles.select}`}>대여</div>
+            <div className={`${styles.select}`}>극장</div>
           </div>
         </div>
         <div className={styles.trendBody}>
-          {trending ? (
-            trending.map((e, idx) => {
+          {latestTrailers ? (
+            latestTrailers.map((e, idx) => {
               return (
                 <div key={idx} className={styles.trendingElement}>
                   <img
